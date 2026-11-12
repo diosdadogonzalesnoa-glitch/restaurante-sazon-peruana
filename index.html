@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sazón Peruana — Restaurante Criollo</title>
+  <meta name="description" content="Sazón Peruana, restaurante criollo en Barranco, Lima. Cocina criolla con sabor a casa: guisos de olla lenta, recetas de familia y pisco peruano. Reserva tu mesa.">
+  <link rel="icon" type="image/png" href="assets/img/sp-mark-dark.png">
+  <meta name="theme-color" content="#2c2c2c">
+
+  <!-- Vista previa al compartir (WhatsApp, Facebook, etc.).
+       Al publicar, cambia las rutas de og:url y og:image por la URL completa del sitio
+       (ej. https://sazon-peruana.netlify.app/assets/img/web/og-sazon-peruana.jpg). -->
+  <meta property="og:type" content="restaurant">
+  <meta property="og:locale" content="es_PE">
+  <meta property="og:site_name" content="Sazón Peruana">
+  <meta property="og:title" content="Sazón Peruana — Restaurante Criollo">
+  <meta property="og:description" content="Cocina criolla con sabor a casa en Barranco, Lima. Guisos de olla lenta, recetas de familia y pisco peruano. Reserva tu mesa.">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="assets/img/web/og-sazon-peruana.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Comedor de Sazón Peruana con el logo del restaurante">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Tipografías: Cormorant Garamond + Satoshi -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header class="nav" id="nav">
+    <a href="#inicio" class="nav__brand" aria-label="Sazón Peruana — inicio">
+      <img src="assets/img/sp-mark-light.png" alt="" width="79" height="40">
+      <span>Sazón Peruana</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#carta">Carta</a>
+      <a href="#bebidas">Bebidas</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a href="assets/carta/carta-sazon-peruana.pdf" class="link-text nav__menu-link" target="_blank" rel="noopener">Ver carta</a>
+      <a href="#" class="icon-btn js-whatsapp" aria-label="Escríbenos por WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.1A8 8 0 1 1 20 12Z"/><path d="M9 9.5c0 2.8 2.7 5.5 5.5 5.5l1-1.5-2-1-1 .7a4 4 0 0 1-1.7-1.7l.7-1-1-2Z"/></svg>
+      </a>
+      <a href="#reservas" class="btn btn--light nav__cta">Reservar</a>
+      <button class="nav__burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Menú móvil">
+      <a href="#inicio">Inicio</a>
+      <a href="#carta">Carta</a>
+      <a href="#bebidas">Bebidas</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a href="#reservas" class="btn btn--light">Reservar una mesa</a>
+  </div>
+
+  <main>
+
+    <!-- ============ HERO — VIDEO 1 ============ -->
+    <section class="hero" id="inicio">
+      <div class="hero__media">
+        <!-- Video 1 — Hero
+             · Celulares/tablets (≤1024px): "Video 1 - movil.mp4" (1080p liviana)
+             · Pantallas grandes: "Video 1.mp4" (4K original)
+             Si la versión móvil aún no existe, el navegador salta a la 4K automáticamente. -->
+        <video class="hero__video bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+          <source src="assets/video/Video%201%20-%20movil.mp4" type="video/mp4" media="(max-width: 1024px)">
+          <source src="assets/video/Video%201.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <p class="hero__meta hero__meta--left">Barranco · Lima</p>
+        <h1 class="hero__title">
+          <span>Sazón</span>
+          <span>con alma</span>
+          <span>criolla</span>
+        </h1>
+        <p class="hero__meta hero__meta--right">Cocina de casa</p>
+      </div>
+
+      <div class="hero__footer">
+        <p class="hero__lede">En Sazón Peruana cada plato es un homenaje a la mesa criolla de siempre: guisos de olla lenta, recetas de familia y un buen pisco peruano, servidos con la calidez de casa.</p>
+
+        <aside class="hero__card">
+          <p class="caption">Hoy te esperamos</p>
+          <p class="hero__card-hours">12:00 — 17:00</p>
+          <p class="hero__card-note">Almuerzos criollos · Martes a domingo</p>
+          <a href="#reservas" class="link-text">Reservar mesa →</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ INTRO ============ -->
+    <section class="intro section" id="nosotros-intro">
+      <div class="intro__grid">
+        <div class="intro__text">
+          <p class="caption">Restaurante criollo</p>
+          <h2 class="h-display reveal">El espíritu<br>de la mesa<br>criolla</h2>
+          <p class="body-lg">Cocina criolla con sabor a casa: sabores que se cocinan sin prisa, con cucharón de palo y olla de barro.</p>
+          <a href="#nosotros" class="btn btn--dark">Nuestra historia</a>
+        </div>
+        <figure class="intro__media">
+          <img class="media-img" src="assets/img/web/imagen-01.jpg" alt="Salón de Sazón Peruana con mesas puestas y luces cálidas" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Carapulcra con sopa seca</span><i>✦</i>
+        <span>Ají de gallina</span><i>✦</i>
+        <span>Lomo saltado</span><i>✦</i>
+        <span>Seco de cabrito</span><i>✦</i>
+        <span>Tacu tacu</span><i>✦</i>
+        <span>Causa rellena</span><i>✦</i>
+        <span>Picarones</span><i>✦</i>
+        <span>Chilcano de pisco</span><i>✦</i>
+        <span>Carapulcra con sopa seca</span><i>✦</i>
+        <span>Ají de gallina</span><i>✦</i>
+        <span>Lomo saltado</span><i>✦</i>
+        <span>Seco de cabrito</span><i>✦</i>
+        <span>Tacu tacu</span><i>✦</i>
+        <span>Causa rellena</span><i>✦</i>
+        <span>Picarones</span><i>✦</i>
+        <span>Chilcano de pisco</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ CARTA ============ -->
+    <section class="menu section" id="carta">
+      <div class="section-head">
+        <h2 class="h-display reveal">Platos<br>de la casa</h2>
+        <div class="section-head__aside">
+          <p class="caption">La carta</p>
+          <p>Nuestros clásicos de siempre, preparados cada día con insumos frescos del mercado y recetas que pasaron de generación en generación.</p>
+        </div>
+      </div>
+
+      <div class="menu__grid">
+        <article class="dish">
+          <div class="dish__media"><img src="assets/img/web/imagen-02.jpg" alt="Carapulcra con sopa seca" loading="lazy" decoding="async"></div>
+          <div class="dish__row"><h3>Carapulcra con sopa seca</h3><span class="dish__price">S/ 32</span></div>
+          <p>El clásico del sur chico: papa seca guisada con cerdo, maní y ají panca, junto a tallarines en aderezo de albahaca.</p>
+        </article>
+        <article class="dish">
+          <div class="dish__media"><img src="assets/img/web/imagen-03.jpg" alt="Ají de gallina con arroz, papa y huevo" loading="lazy" decoding="async"></div>
+          <div class="dish__row"><h3>Ají de gallina</h3><span class="dish__price">S/ 28</span></div>
+          <p>Gallina deshilachada en crema de ají amarillo y pecanas, con papa amarilla, huevo, aceituna de botija y arroz.</p>
+        </article>
+        <article class="dish">
+          <div class="dish__media"><img src="assets/img/web/imagen-04.jpg" alt="Lomo saltado con papas fritas y arroz" loading="lazy" decoding="async"></div>
+          <div class="dish__row"><h3>Lomo saltado</h3><span class="dish__price">S/ 38</span></div>
+          <p>Lomo fino al wok con cebolla, tomate y ají amarillo, flambeado al sillao. Con papas fritas y arroz graneado.</p>
+        </article>
+        <article class="dish">
+          <div class="dish__media"><img src="assets/img/web/imagen-05.jpg" alt="Seco de cabrito con frejoles y arroz" loading="lazy" decoding="async"></div>
+          <div class="dish__row"><h3>Seco de cabrito</h3><span class="dish__price">S/ 40</span></div>
+          <p>Cabrito tierno guisado en culantro y chicha de jora, con frejoles canarios y arroz blanco.</p>
+        </article>
+        <article class="dish">
+          <div class="dish__media"><img src="assets/img/web/imagen-06.jpg" alt="Tacu tacu con lomo y sarsa criolla" loading="lazy" decoding="async"></div>
+          <div class="dish__row"><h3>Tacu tacu con lomo</h3><span class="dish__price">S/ 34</span></div>
+          <p>Frejoles y arroz dorados a la sartén, con lomo saltado jugoso, huevo frito y plátano.</p>
+        </article>
+        <article class="dish">
+          <div class="dish__media"><img src="assets/img/web/imagen-07.jpg" alt="Causa rellena con palta y huevo" loading="lazy" decoding="async"></div>
+          <div class="dish__row"><h3>Causa rellena</h3><span class="dish__price">S/ 22</span></div>
+          <p>Masa de papa amarilla con limón y ají, rellena de pollo, palta y mayonesa casera.</p>
+        </article>
+        <article class="dish">
+          <div class="dish__media"><img src="assets/img/web/imagen-08.jpg" alt="Arroz con pato y sarsa criolla" loading="lazy" decoding="async"></div>
+          <div class="dish__row"><h3>Arroz con pato</h3><span class="dish__price">S/ 38</span></div>
+          <p>Arroz verde al culantro y cerveza negra, con pierna de pato confitada y sarsa criolla.</p>
+        </article>
+        <article class="dish">
+          <div class="dish__media"><img src="assets/img/web/imagen-09.jpg" alt="Picarones con miel y suspiro a la limeña" loading="lazy" decoding="async"></div>
+          <div class="dish__row"><h3>Dulces criollos</h3><span class="dish__price">S/ 14</span></div>
+          <p>Picarones con miel de chancaca y suspiro a la limeña con merengue al oporto.</p>
+        </article>
+      </div>
+
+      <div class="menu__footer">
+        <a href="assets/carta/carta-sazon-peruana.pdf" class="btn btn--dark" target="_blank" rel="noopener">Ver carta completa</a>
+      </div>
+    </section>
+
+    <!-- ============ FRASE / VIDEO 2 ============ -->
+    <section class="statement" id="tradicion">
+      <div class="statement__media">
+        <!-- Video 2 — Cocina en movimiento
+             · Celulares/tablets (≤1024px): "Video 2 - movil.mp4" (720p liviana)
+             · Pantallas grandes: "Video 2.mp4" (original 1080p)
+             Se descarga y reproduce solo cuando el visitante llega a esta sección. -->
+        <video class="bg-video" data-lazy muted loop playsinline preload="none" aria-hidden="true">
+          <source data-src="assets/video/Video%202%20-%20movil.mp4" type="video/mp4" media="(max-width: 1024px)">
+          <source data-src="assets/video/Video%202.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="statement__overlay"></div>
+      <div class="statement__content">
+        <p class="caption caption--light">Recetas de siempre</p>
+        <h2 class="h-display h-display--light reveal">Platos clásicos.<br>Raíces criollas.</h2>
+        <p class="statement__text">Cada receta de nuestra carta guarda años de tradición: aderezos que se hacen a mano, guisos que se respetan en su tiempo y el cariño de la cocina familiar peruana. Ya sea tu primera visita o tu almuerzo de cada domingo, aquí siempre hay un plato que sabe a casa.</p>
+        <a href="#reservas" class="btn btn--light">Reservar una mesa</a>
+      </div>
+    </section>
+
+    <!-- ============ BEBIDAS ============ -->
+    <section class="drinks section section--linen" id="bebidas">
+      <div class="drinks__grid">
+        <figure class="drinks__media">
+          <img class="media-img" src="assets/img/web/imagen-10.jpg" alt="Pisco sour servido en copa" loading="lazy" decoding="async">
+        </figure>
+
+        <div class="drinks__content">
+          <p class="caption">De nuestra barra</p>
+          <h2 class="h-display reveal">Brindis<br>con pisco<br>de casa</h2>
+          <p class="body">El Perú es tierra de pisco. Acompaña tu almuerzo con un buen chilcano, una chicha morada de la casa o una copa de vino nacional.</p>
+
+          <ul class="drink-list">
+            <li><div class="drink-list__row"><h3>Pisco sour clásico</h3><span>S/ 22</span></div><p>Pisco quebranta, limón, jarabe, clara de huevo y amargo de angostura.</p></li>
+            <li><div class="drink-list__row"><h3>Chilcano de maracuyá</h3><span>S/ 20</span></div><p>Pisco acholado, ginger ale, limón y maracuyá fresco.</p></li>
+            <li><div class="drink-list__row"><h3>Algarrobina</h3><span>S/ 22</span></div><p>Pisco, jarabe de algarrobina, leche evaporada, yema y un toque de canela.</p></li>
+            <li><div class="drink-list__row"><h3>Sour de aguaymanto</h3><span>S/ 24</span></div><p>Nuestro pisco sour con aguaymanto fresco: dulce, ácido y muy peruano.</p></li>
+            <li><div class="drink-list__row"><h3>Capitán</h3><span>S/ 20</span></div><p>Pisco y vermouth rojo, bien frío y con cáscara de naranja. Un clásico de antaño.</p></li>
+            <li><div class="drink-list__row"><h3>Copa de vino nacional</h3><span>S/ 16</span></div><p>Selección de bodegas peruanas. Pregunta por la recomendación del día.</p></li>
+            <li><div class="drink-list__row"><h3>Cerveza artesanal peruana</h3><span>S/ 15</span></div><p>Rubia, roja o negra de cervecerías locales. Pregunta por la de temporada.</p></li>
+            <li><div class="drink-list__row"><h3>Chicha morada de la casa</h3><span>S/ 9</span></div><p>Maíz morado, piña, manzana y canela. Jarra disponible.</p></li>
+            <li><div class="drink-list__row"><h3>Limonada frozen</h3><span>S/ 10</span></div><p>Limón, hierbabuena y hielo frappé. Ideal para el verano limeño.</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EVENTOS ============ -->
+    <section class="events section" id="eventos">
+      <div class="events__head">
+        <p class="caption">Celebraciones</p>
+        <h2 class="h-display reveal">Tu fiesta,<br>a la criolla</h2>
+        <p class="body">Cumpleaños, almuerzos de empresa o la reunión familiar del domingo: preparamos tu celebración con menús a medida y la atención de siempre.</p>
+      </div>
+
+      <div class="events__grid">
+        <article class="event">
+          <div class="event__media"><img src="assets/img/web/imagen-11.jpg" alt="Mesa larga servida para una reunión familiar" loading="lazy" decoding="async"></div>
+          <h3>Almuerzos familiares</h3>
+          <p>Mesas para grupos grandes y fuentes para compartir, al centro, como manda la tradición.</p>
+        </article>
+        <article class="event">
+          <div class="event__media"><img src="assets/img/web/imagen-12.jpg" alt="Salón decorado para un evento privado" loading="lazy" decoding="async"></div>
+          <h3>Eventos privados</h3>
+          <p>Reserva el salón para cumpleaños, bautizos o celebraciones de empresa con menú especial.</p>
+        </article>
+        <article class="event">
+          <div class="event__media"><img src="assets/img/web/imagen-13.jpg" alt="Pedido para llevar en bolsas de papel" loading="lazy" decoding="async"></div>
+          <h3>Pedidos para llevar</h3>
+          <p>Tus platos favoritos listos para recoger o llevar a casa. Haz tu pedido por WhatsApp.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ HISTORIA — IMAGEN 14 ============ -->
+    <section class="story" id="nosotros">
+      <div class="story__media">
+        <img class="media-img" src="assets/img/web/imagen-14.jpg" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="story__overlay"></div>
+      <div class="story__content">
+        <h2 class="h-display h-display--light reveal">Hecho con<br>cucharón<br>de palo</h2>
+        <p>Todo empezó en la cocina de la abuela: una olla de barro, un cucharón de palo y la puerta siempre abierta para quien llegara con hambre. Sazón Peruana nace de esa costumbre: cocinar sin prisa, servir con cariño y lograr que cada almuerzo se sienta como volver a casa.</p>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIOS ============ -->
+    <section class="reviews section" id="opiniones">
+      <div class="section-head">
+        <h2 class="h-display reveal">Lo que dicen<br>nuestros comensales</h2>
+        <div class="section-head__aside">
+          <p class="caption">Reseñas de muestra — se reemplazarán por reseñas reales del restaurante</p>
+        </div>
+      </div>
+
+      <div class="reviews__row">
+        <article class="review">
+          <div class="review__top"><span class="stars" aria-label="5 de 5">★★★★★</span><span class="caption">Google</span></div>
+          <p>La carapulcra con sopa seca está igualita a la de mi abuela. Atención muy cálida y el local precioso.</p>
+          <p class="review__author">Comensal · Barranco</p>
+        </article>
+        <article class="review">
+          <div class="review__top"><span class="stars" aria-label="5 de 5">★★★★★</span><span class="caption">Google</span></div>
+          <p>Fuimos en familia un domingo y salimos felices. El seco de cabrito y el pisco sour, de lo mejor de Lima.</p>
+          <p class="review__author">Comensal · Lima</p>
+        </article>
+        <article class="review">
+          <div class="review__top"><span class="stars" aria-label="5 de 5">★★★★★</span><span class="caption">Tripadvisor</span></div>
+          <p>Comida criolla de verdad, porciones generosas y un ambiente muy bonito. Volveremos en nuestro próximo viaje.</p>
+          <p class="review__author">Visitante · Arequipa</p>
+        </article>
+        <article class="review">
+          <div class="review__top"><span class="stars" aria-label="5 de 5">★★★★★</span><span class="caption">Facebook</span></div>
+          <p>El ají de gallina, espectacular. Se nota que todo es hecho en casa. Muy recomendado para almorzar.</p>
+          <p class="review__author">Comensal · Barranco</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ RESERVAS / CONTACTO ============ -->
+    <section class="booking section section--linen" id="reservas">
+      <div class="booking__grid">
+        <div class="booking__intro">
+          <p class="caption">Reservas</p>
+          <h2 class="h-display reveal">Reserva<br>tu mesa</h2>
+          <p class="body">Completa tus datos y te confirmamos por WhatsApp. Para grupos de más de 10 personas escríbenos directamente.</p>
+        </div>
+
+        <form class="form" id="booking-form" novalidate>
+          <label class="field"><span>Nombre</span><input type="text" name="nombre" autocomplete="name" required></label>
+          <label class="field"><span>Personas</span>
+            <select name="personas" required>
+              <option value="" disabled selected>Elegir</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10+</option>
+            </select>
+          </label>
+          <label class="field"><span>Fecha</span><input type="date" name="fecha" required></label>
+          <label class="field"><span>Hora</span>
+            <select name="hora" required>
+              <option value="" disabled selected>Elegir</option>
+              <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option><option>16:00</option>
+            </select>
+          </label>
+          <label class="field field--full"><span>Comentarios (opcional)</span><textarea name="comentario" rows="3" placeholder="Cumpleaños, silla para bebé, alergias…"></textarea></label>
+          <div class="form__footer">
+            <p class="form__msg" role="status" aria-live="polite"></p>
+            <button type="submit" class="btn btn--dark">Enviar por WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="contact section" id="contacto">
+      <div class="contact__grid">
+        <div class="contact__col">
+          <p class="caption">Dirección</p>
+          <p class="contact__big">Calle Las Lámparas<br>145, Barranco</p>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Barranco%2C+Lima%2C+Per%C3%BA" class="link-text" target="_blank" rel="noopener">Cómo llegar →</a>
+        </div>
+        <div class="contact__col">
+          <p class="caption">Horario</p>
+          <p class="contact__big">Martes a domingo<br>12:00 — 17:00</p>
+          <p class="muted">Lunes cerrado</p>
+        </div>
+        <div class="contact__col">
+          <p class="caption">Contacto</p>
+          <p class="contact__big">(01) 555-0145</p>
+          <span class="contact__mail">hola@sazonperuana.pe</span>
+          <a href="#" class="link-text js-whatsapp">WhatsApp →</a>
+        </div>
+      </div>
+      <div class="contact__map">
+        <iframe title="Ubicación de Sazón Peruana en Google Maps" src="https://www.google.com/maps?q=Barranco%2C+Lima%2C+Per%C3%BA&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <img class="footer__logo" src="assets/img/sp-logo-light.png" alt="Sazón Peruana — Restaurante criollo" width="240" height="170" loading="lazy">
+      <div class="footer__cols">
+        <nav class="footer__col" aria-label="Secciones">
+          <p class="caption caption--light">Explora</p>
+          <a href="#carta">Carta</a>
+          <a href="#bebidas">Bebidas</a>
+          <a href="#eventos">Eventos</a>
+          <a href="#nosotros">Nosotros</a>
+        </nav>
+        <div class="footer__col">
+          <p class="caption caption--light">Visítanos</p>
+          <p>Calle Las Lámparas 145<br>Barranco, Lima</p>
+          <p>Mar — Dom · 12:00 — 17:00</p>
+          <p>(01) 555-0145</p>
+          <p>hola@sazonperuana.pe</p>
+        </div>
+        <div class="footer__col">
+          <p class="caption caption--light">Síguenos</p>
+          <!-- Redes del restaurante: reemplazar <p> por <a href="URL" target="_blank" rel="noopener"> cuando existan -->
+          <p>Instagram</p>
+          <p>Facebook</p>
+          <p>TikTok</p>
+        </div>
+      </div>
+    </div>
+    <p class="footer__wordmark" aria-hidden="true">Sazón Peruana</p>
+    <div class="footer__bottom">
+      <p>© <span id="year">2026</span> Sazón Peruana · Restaurante criollo</p>
+      <p>Restaurante ficticio · Sitio de demostración</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

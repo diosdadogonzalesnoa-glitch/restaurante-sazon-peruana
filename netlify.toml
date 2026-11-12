@@ -1,0 +1,6 @@
+# Despliegue en Netlify
+# Si defines la variable de entorno WHATSAPP_NUMBER (Site settings → Environment variables),
+# el número se inyecta en js/config.js al desplegar y NUNCA queda guardado en GitHub.
+[build]
+  publish = "."
+  command = "node scripts/set-whatsapp.js"

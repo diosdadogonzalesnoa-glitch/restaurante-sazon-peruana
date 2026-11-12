@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Carta — Sazón Peruana</title>
+<!-- Fuente de la carta en PDF. Se renderiza a imagen (2 páginas A4) y luego se arma el PDF.
+     Uso: carta.html?p=1  /  carta.html?p=2  -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parchment: #d8cbb8; --linen: #bfb4a3; --stone: #b6ab9c; --walnut: #978e81;
+    --espresso: #615b53; --onyx: #2c2c2c; --saffron: #d49653;
+    --serif: 'Cormorant Garamond', serif; --sans: 'Satoshi', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 794px; height: 1123px; overflow: hidden; background: var(--parchment); }
+  body { font-family: var(--sans); font-weight: 500; color: var(--onyx); -webkit-font-smoothing: antialiased; }
+  .page { position: relative; width: 794px; height: 1123px; padding: 46px 56px 52px; display: none; flex-direction: column; }
+  .page.on { display: flex; }
+  .page::before { content: ""; position: absolute; inset: 18px; border: 1px solid var(--stone); pointer-events: none; }
+
+  header { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; padding-bottom: 22px; border-bottom: 1px solid var(--stone); }
+  header img { width: 210px; height: auto; }
+  .eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: .14em; color: var(--walnut); }
+  .page-title { font-family: var(--serif); font-weight: 300; font-size: 64px; line-height: .85; letter-spacing: -0.04em; text-transform: uppercase; }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 44px; padding-top: 20px; flex: 1; }
+  .cols.single { grid-template-columns: 1fr; }
+  section + section { margin-top: 18px; }
+  h2 { display: flex; align-items: baseline; gap: 10px; font-family: var(--serif); font-weight: 300; font-size: 34px; line-height: 1; letter-spacing: -0.03em; text-transform: uppercase; padding-bottom: 10px; border-bottom: 1px solid var(--onyx); margin-bottom: 4px; }
+  h2 i { font-style: normal; color: var(--saffron); font-size: 14px; }
+  .item { padding: 9px 0; border-bottom: 1px solid var(--stone); }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .row h3 { font-family: var(--serif); font-weight: 400; font-size: 20px; line-height: 1.05; letter-spacing: -0.01em; text-transform: uppercase; }
+  .row span { font-weight: 700; font-size: 12px; white-space: nowrap; }
+  .item p { margin-top: 4px; font-size: 10.5px; line-height: 1.4; color: var(--espresso); }
+  .tag { display: inline-block; margin-left: 6px; padding: 2px 5px 1px; border: 1px solid var(--saffron); border-radius: 3px; font: 700 8px/1.2 var(--sans); letter-spacing: .06em; color: #9a6328; vertical-align: 3px; text-transform: uppercase; }
+
+  footer { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; padding-top: 16px; border-top: 1px solid var(--stone); font-size: 9.5px; line-height: 1.5; color: var(--espresso); text-transform: uppercase; letter-spacing: .02em; }
+  footer strong { color: var(--onyx); }
+  .p2-head { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 20px; border-bottom: 1px solid var(--stone); }
+  .p2-head img { width: 120px; }
+  .photo { position: relative; margin: 26px 0 0; height: 250px; overflow: hidden; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 19%; display: block; }
+  .photo figcaption { position: absolute; left: 14px; bottom: 12px; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--parchment); }
+  .quote { font-family: var(--serif); font-weight: 300; font-style: italic; font-size: 22px; line-height: 1.15; color: var(--espresso); text-align: center; padding: 18px 40px 6px; }
+</style>
+</head>
+<body>
+
+<!-- ============ PÁGINA 1: COMIDA ============ -->
+<div class="page" id="p1">
+  <header>
+    <img src="../assets/img/sp-logo-dark.png" alt="Sazón Peruana">
+    <p class="eyebrow">Barranco · Lima — Cocina criolla con sabor a casa</p>
+  </header>
+
+  <div class="cols">
+    <div>
+      <section>
+        <h2>Entradas <i>✦</i></h2>
+        <div class="item"><div class="row"><h3>Papa a la huancaína</h3><span>S/ 16</span></div><p>Papa amarilla bañada en crema de ají amarillo y queso fresco, con huevo y aceituna de botija.</p></div>
+        <div class="item"><div class="row"><h3>Causa rellena</h3><span>S/ 22</span></div><p>Masa de papa amarilla con limón y ají, rellena de pollo, palta y mayonesa casera.</p></div>
+        <div class="item"><div class="row"><h3>Ocopa arequipeña</h3><span>S/ 18</span></div><p>Papa sancochada en salsa de huacatay, maní y ají mirasol, con huevo y aceituna.</p></div>
+        <div class="item"><div class="row"><h3>Anticuchos de corazón</h3><span>S/ 26</span></div><p>Brochetas a la parrilla con papa dorada, choclo desgranado y ají de la casa.</p></div>
+        <div class="item"><div class="row"><h3>Choritos a la chalaca</h3><span>S/ 24</span></div><p>Mejillones con sarsa de cebolla, tomate, choclo, rocoto y limón.</p></div>
+      </section>
+      <section>
+        <h2>Postres <i>✦</i></h2>
+        <div class="item"><div class="row"><h3>Picarones</h3><span>S/ 12</span></div><p>Masa de zapallo y camote, fritos al momento, con miel de chancaca.</p></div>
+        <div class="item"><div class="row"><h3>Suspiro a la limeña</h3><span>S/ 12</span></div><p>Manjar blanco con merengue al oporto y canela.</p></div>
+        <div class="item"><div class="row"><h3>Dúo criollo<span class="tag">Favorito</span></h3><span>S/ 14</span></div><p>Picarones y suspiro a la limeña para compartir.</p></div>
+        <div class="item"><div class="row"><h3>El clásico</h3><span>S/ 12</span></div><p>Arroz con leche y mazamorra morada, mitad y mitad.</p></div>
+      </section>
+    </div>
+
+    <div>
+      <section>
+        <h2>Platos de fondo <i>✦</i></h2>
+        <div class="item"><div class="row"><h3>Carapulcra con sopa seca<span class="tag">De la casa</span></h3><span>S/ 32</span></div><p>Papa seca guisada con cerdo, maní y ají panca, junto a tallarines en aderezo de albahaca.</p></div>
+        <div class="item"><div class="row"><h3>Ají de gallina</h3><span>S/ 28</span></div><p>Gallina deshilachada en crema de ají amarillo y pecanas, con papa, huevo, aceituna y arroz.</p></div>
+        <div class="item"><div class="row"><h3>Lomo saltado</h3><span>S/ 38</span></div><p>Lomo fino al wok con cebolla, tomate y ají amarillo, flambeado al sillao. Con papas fritas y arroz.</p></div>
+        <div class="item"><div class="row"><h3>Seco de cabrito</h3><span>S/ 40</span></div><p>Cabrito tierno guisado en culantro y chicha de jora, con frejoles canarios y arroz blanco.</p></div>
+        <div class="item"><div class="row"><h3>Tacu tacu con lomo</h3><span>S/ 34</span></div><p>Frejoles y arroz dorados a la sartén, con lomo saltado jugoso, huevo frito y plátano.</p></div>
+        <div class="item"><div class="row"><h3>Arroz con pato</h3><span>S/ 38</span></div><p>Arroz verde al culantro y cerveza negra, con pierna de pato confitada y sarsa criolla.</p></div>
+        <div class="item"><div class="row"><h3>Cau cau</h3><span>S/ 26</span></div><p>Guiso de mondongo con papa amarilla, ají amarillo y hierbabuena. Con arroz graneado.</p></div>
+        <div class="item"><div class="row"><h3>Chicharrón de cerdo</h3><span>S/ 34</span></div><p>Panceta crocante con camote frito, mote y sarsa criolla.</p></div>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <p>Precios en soles · Incluyen IGV<br>Consulta por alérgenos a nuestro personal</p>
+    <p style="text-align:right"><strong>Sazón Peruana</strong> · Restaurante criollo<br>Carta 1 de 2</p>
+  </footer>
+</div>
+
+<!-- ============ PÁGINA 2: BEBIDAS ============ -->
+<div class="page" id="p2">
+  <div class="p2-head">
+    <div>
+      <p class="eyebrow">De nuestra barra</p>
+      <p class="page-title" style="margin-top:10px">Bebidas</p>
+    </div>
+    <img src="../assets/img/sp-mark-dark.png" alt="">
+  </div>
+
+  <div class="cols">
+    <div>
+      <section>
+        <h2>Coctelería <i>✦</i></h2>
+        <div class="item"><div class="row"><h3>Pisco sour<span class="tag">Favorito</span></h3><span>S/ 22</span></div><p>Pisco quebranta, limón, jarabe, clara de huevo y amargo de angostura.</p></div>
+        <div class="item"><div class="row"><h3>Chilcano de maracuyá</h3><span>S/ 20</span></div><p>Pisco acholado, ginger ale, limón y maracuyá fresco.</p></div>
+        <div class="item"><div class="row"><h3>Algarrobina</h3><span>S/ 22</span></div><p>Pisco, jarabe de algarrobina, leche evaporada, yema y un toque de canela.</p></div>
+        <div class="item"><div class="row"><h3>Sour de aguaymanto</h3><span>S/ 24</span></div><p>Nuestro pisco sour con aguaymanto fresco: dulce, ácido y muy peruano.</p></div>
+        <div class="item"><div class="row"><h3>Capitán</h3><span>S/ 20</span></div><p>Pisco y vermouth rojo, bien frío y con cáscara de naranja.</p></div>
+      </section>
+    </div>
+    <div>
+      <section>
+        <h2>Vinos y cervezas <i>✦</i></h2>
+        <div class="item"><div class="row"><h3>Copa de vino nacional</h3><span>S/ 16</span></div><p>Selección de bodegas peruanas. Pregunta por la recomendación del día.</p></div>
+        <div class="item"><div class="row"><h3>Botella de vino nacional</h3><span>S/ 75</span></div><p>Tinto o blanco, de bodegas del sur del país.</p></div>
+        <div class="item"><div class="row"><h3>Cerveza artesanal peruana</h3><span>S/ 15</span></div><p>Rubia, roja o negra de cervecerías locales.</p></div>
+      </section>
+      <section>
+        <h2>Sin alcohol <i>✦</i></h2>
+        <div class="item"><div class="row"><h3>Chicha morada de la casa</h3><span>S/ 9</span></div><p>Maíz morado, piña, manzana y canela. Jarra S/ 25.</p></div>
+        <div class="item"><div class="row"><h3>Limonada frozen</h3><span>S/ 10</span></div><p>Limón, hierbabuena y hielo frappé.</p></div>
+        <div class="item"><div class="row"><h3>Gaseosas y agua mineral</h3><span>S/ 6</span></div><p>Consulta las opciones disponibles.</p></div>
+      </section>
+    </div>
+  </div>
+
+  <figure class="photo"><img src="../assets/img/web/imagen-10.jpg" alt=""><figcaption>Pisco sour de la casa</figcaption></figure>
+  <p class="quote">“Cocinamos sin prisa, servimos con cariño:<br>que cada almuerzo se sienta como volver a casa.”</p>
+
+  <footer style="margin-top:22px">
+    <p><strong>Calle Las Lámparas 145, Barranco — Lima</strong><br>Martes a domingo · 12:00 — 17:00</p>
+    <p style="text-align:right">Restaurante ficticio · Carta de demostración<br>Carta 2 de 2</p>
+  </footer>
+</div>
+
+<script>
+  var p = new URLSearchParams(location.search).get('p') || '1';
+  document.getElementById('p' + p).classList.add('on');
+</script>
+</body>
+</html>
