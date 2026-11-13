@@ -1,5 +1,5 @@
-// - whatsapp con codigo de pais, sin + ni espacios
-// - vacio = demo, en netlify se llena con WHATSAPP_NUMBER
+// - whatsapp de reservas, con codigo de pais, sin + ni espacios
+// - si en netlify existe WHATSAPP_NUMBER, se usa ese
 window.SITE_CONFIG = {
-  whatsapp: ''
+  whatsapp: '51933211381'
 };

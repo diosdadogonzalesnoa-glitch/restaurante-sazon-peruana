@@ -40,7 +40,7 @@
   var waBase = 'https://wa.me/' + WHATSAPP;
   document.querySelectorAll('.js-whatsapp').forEach(function (a) {
     if (DEMO) { a.href = '#reservas'; return; }
-    a.href = waBase + '?text=' + encodeURIComponent('Hola Sazón Peruana, quisiera hacer una consulta.');
+    a.href = waBase + '?text=' + encodeURIComponent('¡Hola, Sazón Peruana! Quisiera hacerles una consulta.');
     a.target = '_blank';
     a.rel = 'noopener';
   });
@@ -82,21 +82,36 @@
       return;
     }
     var d = new FormData(form);
-    var fecha = d.get('fecha').split('-').reverse().join('/');
+    var nombre = d.get('nombre').trim();
+    var personas = d.get('personas') === '10+' ? 'Más de 10 personas'
+      : d.get('personas') + (d.get('personas') === '1' ? ' persona' : ' personas');
+    // - fecha larga, ej. sábado 20 de diciembre de 2026
+    var p = d.get('fecha').split('-');
+    var fecha = new Date(+p[0], +p[1] - 1, +p[2]).toLocaleDateString('es-PE', {
+      weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+    }).replace(',', '');
+    fecha = fecha.charAt(0).toUpperCase() + fecha.slice(1);
+    var comentario = d.get('comentario').trim();
+
+    // - mensaje formal, el cliente solo pulsa enviar
     var texto =
-      'Hola Sazón Peruana, quisiera reservar una mesa.\n' +
-      '• Nombre: ' + d.get('nombre') + '\n' +
-      '• Personas: ' + d.get('personas') + '\n' +
-      '• Fecha: ' + fecha + '\n' +
-      '• Hora: ' + d.get('hora') +
-      (d.get('comentario') ? '\n• Comentarios: ' + d.get('comentario') : '');
+      '¡Hola, Sazón Peruana! Quisiera solicitar una reserva con los siguientes datos:\n\n' +
+      '*Nombre:* ' + nombre + '\n' +
+      '*Personas:* ' + personas + '\n' +
+      '*Fecha:* ' + fecha + '\n' +
+      '*Hora:* ' + d.get('hora') + ' h' +
+      (comentario ? '\n*Comentarios:* ' + comentario : '') +
+      '\n\nQuedo a la espera de su confirmación. ¡Muchas gracias!';
+
     if (DEMO) {
-      msg.textContent = '¡Gracias, ' + d.get('nombre') + '! Este es un sitio de demostración: en la versión real, tu reserva se enviaría por WhatsApp.';
+      msg.textContent = '¡Gracias, ' + nombre + '! Este es un sitio de demostración: en la versión real, tu reserva se enviaría por WhatsApp.';
       form.reset();
       return;
     }
-    msg.textContent = 'Abriendo WhatsApp para confirmar tu reserva…';
-    window.open(waBase + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
+    var url = waBase + '?text=' + encodeURIComponent(texto);
+    msg.textContent = 'Te llevamos a WhatsApp: solo pulsa «Enviar» para confirmar tu reserva.';
+    var w = window.open(url, '_blank');
+    if (w) w.opener = null; else window.location.href = url;
   });
 
   form.addEventListener('input', function (e) {

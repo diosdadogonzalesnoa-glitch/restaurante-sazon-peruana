@@ -1,6 +1,6 @@
 # Sazón Peruana — Restaurante Criollo
 
-Sitio web de demostración para **Sazón Peruana**, un restaurante criollo peruano **ficticio** ubicado en Barranco, Lima.
+Sitio web de demostración para **Sazón Peruana**, un restaurante criollo peruano **ficticio** ubicado en Ica.
 Es una página estática (HTML, CSS y JavaScript, sin frameworks ni base de datos), con estética editorial: lienzo color pergamino, títulos serif ligeros, un único acento color azafrán, fotografía a pantalla completa y videos de fondo con movimiento sutil.
 
 > ⚠️ Restaurante, dirección, teléfono, correo, precios y reseñas son **de muestra**.
@@ -52,21 +52,20 @@ npx http-server -p 5173 -c-1
 y abre `http://localhost:5173`.
 (Abrir `index.html` con doble clic también funciona, pero los videos y el mapa se comportan mejor con un servidor.)
 
-## WhatsApp (reservas) sin exponer el número en GitHub
+## WhatsApp (reservas)
 
-El formulario de reservas y los botones de WhatsApp leen el número desde `js/config.js`:
+El formulario arma un mensaje formal con los datos del cliente (nombre, personas, fecha y hora) y abre el chat de WhatsApp del restaurante. El cliente solo tiene que pulsar **Enviar**.
+
+El número se configura en `js/config.js`:
 
 ```js
 window.SITE_CONFIG = {
-  whatsapp: ''   // vacío = modo demostración (no abre WhatsApp)
+  whatsapp: "51999888777"   // código de país + número; vacío = modo demostración
 };
 ```
 
-- **En el repositorio el número se deja vacío.** Así nunca queda guardado en GitHub.
-- **En Netlify**, ve a *Site configuration → Environment variables* y crea `WHATSAPP_NUMBER` con el número del cliente (con código de país, por ejemplo `51999888777`). Al desplegar, `scripts/set-whatsapp.js` lo escribe en `js/config.js` automáticamente.
-- **En GitHub Pages** no hay variables de entorno, así que el sitio queda en modo demostración. Si se necesita el número ahí, hay que escribirlo en `js/config.js`, y entonces sí quedaría visible en el repositorio.
-
-> Nota: una vez publicado, cualquier visitante puede ver el número en el navegador, porque el enlace de WhatsApp lo necesita. Lo que se evita es que quede guardado en el código fuente de GitHub.
+- Para no guardar el número en GitHub, deja ese valor vacío y crea en Netlify (*Site configuration → Environment variables*) la variable `WHATSAPP_NUMBER`. Al desplegar, `scripts/set-whatsapp.js` la escribe en `js/config.js`.
+- Una vez publicado, el número es visible en el navegador, porque el enlace de WhatsApp lo necesita.
 
 ## Desplegar
 
@@ -74,7 +73,7 @@ window.SITE_CONFIG = {
 
 **GitHub Pages:** *Settings → Pages → Deploy from a branch → main / (root)*.
 
-**Después de publicar**, en `index.html` cambia `og:url` y `og:image` por la URL completa del sitio. Así, al compartir el enlace por WhatsApp o redes, aparecerán la imagen y la descripción.
+Sitio publicado: **https://sazon-peruana-demo.netlify.app/**
 
 ## Editar la carta en PDF
 
