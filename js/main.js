@@ -1,14 +1,14 @@
-/* Sazón Peruana — interacciones */
+// - interacciones
 (function () {
   'use strict';
 
-  // El número de WhatsApp se lee de js/config.js (vacío = modo demostración).
+  // - numero desde config.js, vacio = demo
   var WHATSAPP = String((window.SITE_CONFIG && window.SITE_CONFIG.whatsapp) || '').replace(/\D/g, '');
   var DEMO = WHATSAPP === '';
 
   document.documentElement.classList.add('js');
 
-  /* ---------- Navegación sólida al hacer scroll ---------- */
+  // - nav al hacer scroll
   var nav = document.getElementById('nav');
   function onScroll() {
     nav.classList.toggle('is-solid', window.scrollY > 40);
@@ -16,7 +16,7 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- Menú móvil ---------- */
+  // - menu movil
   var burger = document.querySelector('.nav__burger');
   var mobileMenu = document.getElementById('mobile-menu');
   function setMenu(open) {
@@ -36,7 +36,7 @@
     if (e.key === 'Escape' && !mobileMenu.hidden) setMenu(false);
   });
 
-  /* ---------- Enlaces de WhatsApp ---------- */
+  // - enlaces de whatsapp
   var waBase = 'https://wa.me/' + WHATSAPP;
   document.querySelectorAll('.js-whatsapp').forEach(function (a) {
     if (DEMO) { a.href = '#reservas'; return; }
@@ -45,7 +45,7 @@
     a.rel = 'noopener';
   });
 
-  /* ---------- Revelado sutil de títulos ---------- */
+  // - aparicion de titulos
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -61,7 +61,7 @@
     reveals.forEach(function (el) { el.classList.add('is-in'); });
   }
 
-  /* ---------- Formulario de reservas → WhatsApp ---------- */
+  // - reservas por whatsapp
   var form = document.getElementById('booking-form');
   var msg = form.querySelector('.form__msg');
   var dateInput = form.querySelector('input[type="date"]');
@@ -104,13 +104,12 @@
     if (f && e.target.value.trim() !== '') f.classList.remove('is-invalid');
   });
 
-  /* ---------- Año del footer ---------- */
+  // - año del footer
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 })();
 
-/* Videos de fondo: fundido al cargar; el Video 2 se descarga solo al llegar a su sección
-   y se pausa cuando sale de pantalla. Respeta "reducir movimiento". */
+// - videos de fondo: fundido, carga diferida y pausa fuera de pantalla
 (function () {
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var videos = document.querySelectorAll(".bg-video");

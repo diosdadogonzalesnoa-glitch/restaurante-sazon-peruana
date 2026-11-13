@@ -1,6 +1,26 @@
-# Despliegue en Netlify
-# Si defines la variable de entorno WHATSAPP_NUMBER (Site settings → Environment variables),
-# el número se inyecta en js/config.js al desplegar y NUNCA queda guardado en GitHub.
+# - build: numero de whatsapp desde WHATSAPP_NUMBER
 [build]
   publish = "."
   command = "node scripts/set-whatsapp.js"
+
+# - cabeceras de seguridad
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # - solo https
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    # - no permitir iframes de otras webs
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # - sin camara, microfono ni ubicacion
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+    # - solo recursos propios, fuentes y mapa
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com https://api.fontshare.com; font-src 'self' https://fonts.gstatic.com https://cdn.fontshare.com; img-src 'self' data:; media-src 'self'; frame-src https://www.google.com https://maps.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+
+# - la carta pdf se abre en el navegador
+[[headers]]
+  for = "/assets/carta/*.pdf"
+  [headers.values]
+    Content-Type = "application/pdf"
+    Content-Disposition = "inline"

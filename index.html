@@ -8,9 +8,7 @@
   <link rel="icon" type="image/png" href="assets/img/sp-mark-dark.png">
   <meta name="theme-color" content="#2c2c2c">
 
-  <!-- Vista previa al compartir (WhatsApp, Facebook, etc.).
-       Al publicar, cambia las rutas de og:url y og:image por la URL completa del sitio
-       (ej. https://sazon-peruana.netlify.app/assets/img/web/og-sazon-peruana.jpg). -->
+  <!-- - vista previa al compartir, al publicar poner la url completa en og:url y og:image -->
   <meta property="og:type" content="restaurant">
   <meta property="og:locale" content="es_PE">
   <meta property="og:site_name" content="Sazón Peruana">
@@ -23,7 +21,7 @@
   <meta property="og:image:alt" content="Comedor de Sazón Peruana con el logo del restaurante">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Tipografías: Cormorant Garamond + Satoshi -->
+  <!-- - fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
@@ -33,7 +31,7 @@
 </head>
 <body>
 
-  <!-- NAVEGACIÓN -->
+  <!-- - nav -->
   <header class="nav" id="nav">
     <a href="#inicio" class="nav__brand" aria-label="Sazón Peruana — inicio">
       <img src="assets/img/sp-mark-light.png" alt="" width="79" height="40">
@@ -75,13 +73,10 @@
 
   <main>
 
-    <!-- ============ HERO — VIDEO 1 ============ -->
+    <!-- - hero -->
     <section class="hero" id="inicio">
       <div class="hero__media">
-        <!-- Video 1 — Hero
-             · Celulares/tablets (≤1024px): "Video 1 - movil.mp4" (1080p liviana)
-             · Pantallas grandes: "Video 1.mp4" (4K original)
-             Si la versión móvil aún no existe, el navegador salta a la 4K automáticamente. -->
+        <!-- - video 1: version movil en celular, 4k en pc -->
         <video class="hero__video bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
           <source src="assets/video/Video%201%20-%20movil.mp4" type="video/mp4" media="(max-width: 1024px)">
           <source src="assets/video/Video%201.mp4" type="video/mp4">
@@ -111,7 +106,7 @@
       </div>
     </section>
 
-    <!-- ============ INTRO ============ -->
+    <!-- - intro -->
     <section class="intro section" id="nosotros-intro">
       <div class="intro__grid">
         <div class="intro__text">
@@ -126,7 +121,7 @@
       </div>
     </section>
 
-    <!-- ============ MARQUEE ============ -->
+    <!-- - marquee -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
         <span>Carapulcra con sopa seca</span><i>✦</i>
@@ -148,7 +143,7 @@
       </div>
     </div>
 
-    <!-- ============ CARTA ============ -->
+    <!-- - carta -->
     <section class="menu section" id="carta">
       <div class="section-head">
         <h2 class="h-display reveal">Platos<br>de la casa</h2>
@@ -206,13 +201,10 @@
       </div>
     </section>
 
-    <!-- ============ FRASE / VIDEO 2 ============ -->
+    <!-- - frase con video 2 -->
     <section class="statement" id="tradicion">
       <div class="statement__media">
-        <!-- Video 2 — Cocina en movimiento
-             · Celulares/tablets (≤1024px): "Video 2 - movil.mp4" (720p liviana)
-             · Pantallas grandes: "Video 2.mp4" (original 1080p)
-             Se descarga y reproduce solo cuando el visitante llega a esta sección. -->
+        <!-- - video 2: carga al llegar a la seccion -->
         <video class="bg-video" data-lazy muted loop playsinline preload="none" aria-hidden="true">
           <source data-src="assets/video/Video%202%20-%20movil.mp4" type="video/mp4" media="(max-width: 1024px)">
           <source data-src="assets/video/Video%202.mp4" type="video/mp4">
@@ -227,7 +219,7 @@
       </div>
     </section>
 
-    <!-- ============ BEBIDAS ============ -->
+    <!-- - bebidas -->
     <section class="drinks section section--linen" id="bebidas">
       <div class="drinks__grid">
         <figure class="drinks__media">
@@ -254,7 +246,7 @@
       </div>
     </section>
 
-    <!-- ============ EVENTOS ============ -->
+    <!-- - eventos -->
     <section class="events section" id="eventos">
       <div class="events__head">
         <p class="caption">Celebraciones</p>
@@ -281,7 +273,7 @@
       </div>
     </section>
 
-    <!-- ============ HISTORIA — IMAGEN 14 ============ -->
+    <!-- - historia -->
     <section class="story" id="nosotros">
       <div class="story__media">
         <img class="media-img" src="assets/img/web/imagen-14.jpg" alt="" loading="lazy" decoding="async">
@@ -293,7 +285,7 @@
       </div>
     </section>
 
-    <!-- ============ TESTIMONIOS ============ -->
+    <!-- - reseñas -->
     <section class="reviews section" id="opiniones">
       <div class="section-head">
         <h2 class="h-display reveal">Lo que dicen<br>nuestros comensales</h2>
@@ -326,7 +318,7 @@
       </div>
     </section>
 
-    <!-- ============ RESERVAS / CONTACTO ============ -->
+    <!-- - reservas y contacto -->
     <section class="booking section section--linen" id="reservas">
       <div class="booking__grid">
         <div class="booking__intro">
@@ -364,7 +356,7 @@
         <div class="contact__col">
           <p class="caption">Dirección</p>
           <p class="contact__big">Calle Las Lámparas<br>145, Barranco</p>
-          <a href="https://www.google.com/maps/search/?api=1&amp;query=Barranco%2C+Lima%2C+Per%C3%BA" class="link-text" target="_blank" rel="noopener">Cómo llegar →</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Universidad+Tecnol%C3%B3gica+del+Per%C3%BA+-+Sede+Ica%2C+Av.+Ayabaca%2C+Ica" class="link-text" target="_blank" rel="noopener">Cómo llegar →</a>
         </div>
         <div class="contact__col">
           <p class="caption">Horario</p>
@@ -379,13 +371,13 @@
         </div>
       </div>
       <div class="contact__map">
-        <iframe title="Ubicación de Sazón Peruana en Google Maps" src="https://www.google.com/maps?q=Barranco%2C+Lima%2C+Per%C3%BA&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <iframe title="Ubicación de Sazón Peruana en Google Maps" src="https://www.google.com/maps?q=Universidad+Tecnol%C3%B3gica+del+Per%C3%BA+-+Sede+Ica%2C+Av.+Ayabaca%2C+Ica&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
     </section>
 
   </main>
 
-  <!-- ============ FOOTER ============ -->
+  <!-- - footer -->
   <footer class="footer">
     <div class="footer__top">
       <img class="footer__logo" src="assets/img/sp-logo-light.png" alt="Sazón Peruana — Restaurante criollo" width="240" height="170" loading="lazy">
@@ -406,7 +398,7 @@
         </div>
         <div class="footer__col">
           <p class="caption caption--light">Síguenos</p>
-          <!-- Redes del restaurante: reemplazar <p> por <a href="URL" target="_blank" rel="noopener"> cuando existan -->
+          <!-- - pasar a enlaces cuando haya redes -->
           <p>Instagram</p>
           <p>Facebook</p>
           <p>TikTok</p>

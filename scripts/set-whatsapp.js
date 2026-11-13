@@ -1,5 +1,4 @@
-// Se ejecuta en Netlify al desplegar: escribe el número de WhatsApp en js/config.js
-// a partir de la variable de entorno WHATSAPP_NUMBER (solo dígitos, con código de país).
+// - en netlify pone WHATSAPP_NUMBER en js/config.js
 const fs = require('fs');
 const path = require('path');
 

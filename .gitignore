@@ -1,14 +1,14 @@
-# Configuración local de Claude Code / editor
+# - config local
 .claude/
 .vscode/
 
-# Fotos originales en alta resolución (la web usa las copias de assets/img/web)
+# - fotos originales
 assets/img/originales/
 
-# Sistema operativo
+# - sistema
 Thumbs.db
 desktop.ini
 .DS_Store
 
-# Node (por si se instalan herramientas)
+# - node
 node_modules/
