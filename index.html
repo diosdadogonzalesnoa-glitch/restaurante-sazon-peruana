@@ -29,8 +29,62 @@
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/intro.css">
 </head>
 <body>
+
+  <!-- - intro del logo: oculta por defecto, js/intro.js decide si se muestra -->
+  <div class="splash" id="splash" hidden>
+    <button type="button" class="splash-skip" aria-label="Saltar introducción">Saltar</button>
+    <div class="splash-stage" aria-hidden="true">
+      <div class="splash-pieces">
+        <img class="splash-piece p-circulo" src="assets/img/intro/intro-circulo.webp" alt="" width="912" height="644">
+        <img class="splash-piece p-balcon" src="assets/img/intro/intro-balcon.webp" alt="" width="912" height="644">
+        <img class="splash-piece p-farol" src="assets/img/intro/intro-farol.webp" alt="" width="912" height="644">
+        <div class="splash-clip">
+          <div class="splash-layer splash-piece p-senora">
+            <img src="assets/img/intro/intro-senora.webp" alt="" width="912" height="644">
+            <img class="splash-spoon" src="assets/img/intro/intro-cuchara.webp" alt="" width="912" height="644">
+          </div>
+        </div>
+        <img class="splash-piece p-curvas-izq" src="assets/img/intro/intro-curvas-izq.webp" alt="" width="912" height="644">
+        <img class="splash-piece p-curvas-der" src="assets/img/intro/intro-curvas-der.webp" alt="" width="912" height="644">
+        <img class="splash-piece p-titulo" src="assets/img/intro/intro-titulo.webp" alt="" width="912" height="644">
+        <img class="splash-piece p-lineas-izq" src="assets/img/intro/intro-lineas.webp" alt="" width="912" height="644">
+        <img class="splash-piece p-lineas-der" src="assets/img/intro/intro-lineas.webp" alt="" width="912" height="644">
+        <img class="splash-piece p-subtitulo" src="assets/img/intro/intro-subtitulo.webp" alt="" width="912" height="644">
+        <img class="splash-piece p-lineasflor-izq" src="assets/img/intro/intro-lineas-flor.webp" alt="" width="912" height="644">
+        <img class="splash-piece p-lineasflor-der" src="assets/img/intro/intro-lineas-flor.webp" alt="" width="912" height="644">
+        <img class="splash-piece p-flor" src="assets/img/intro/intro-flor.webp" alt="" width="912" height="644">
+      </div>
+      <!-- - logo original: reemplaza a las piezas al final, asi el resultado es identico -->
+      <img class="splash-final" src="assets/img/sp-logo-light.png" alt="" width="912" height="644">
+      <div class="splash-shine"></div>
+      <svg class="splash-fx" viewBox="0 0 912 644" focusable="false">
+        <defs>
+          <radialGradient id="splash-glow-grad">
+            <stop offset="0" stop-color="#fff3dc" stop-opacity="0.95"/>
+            <stop offset="0.45" stop-color="#f1e6d2" stop-opacity="0.35"/>
+            <stop offset="1" stop-color="#f1e6d2" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <path class="splash-trace" pathLength="1" d="M 177 392 A 289.74 289.74 0 1 1 733.5 392"/>
+        <circle class="splash-glow" cx="246" cy="186" r="52" fill="url(#splash-glow-grad)"/>
+        <g class="splash-aroma">
+          <path pathLength="1" d="M 652 134 c -9 -10 7 -20 -2 -32 c -6 -8 4 -16 0 -24"/>
+          <path pathLength="1" d="M 667 128 c -8 -11 9 -22 0 -35 c -6 -9 5 -17 1 -26"/>
+          <path pathLength="1" d="M 682 134 c -9 -10 7 -20 -2 -32 c -6 -8 4 -16 0 -24"/>
+        </g>
+        <g class="splash-sparks">
+          <path d="M 118 64 C 120 75 121 76 132 78 C 121 80 120 81 118 92 C 116 81 115 80 104 78 C 115 76 116 75 118 64 Z"/>
+          <path d="M 806 48 C 808 59 809 60 820 62 C 809 64 808 65 806 76 C 804 65 803 64 792 62 C 803 60 804 59 806 48 Z"/>
+          <path d="M 52 236 C 53.5 244 54.5 245 62 246.5 C 54.5 248 53.5 249 52 257 C 50.5 249 49.5 248 42 246.5 C 49.5 245 50.5 244 52 236 Z"/>
+          <path d="M 868 226 C 869.5 234 870.5 235 878 236.5 C 870.5 238 869.5 239 868 247 C 866.5 239 865.5 238 858 236.5 C 865.5 235 866.5 234 868 226 Z"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <script src="js/intro.js"></script>
 
   <!-- - nav -->
   <header class="nav" id="nav">
