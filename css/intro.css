@@ -309,19 +309,26 @@ html.splash-lock { overflow: hidden; scrollbar-gutter: stable; }
   to   { opacity: 1; transform: translateX(300%) skewX(-18deg); }
 }
 
-/* - chispitas alrededor */
-.splash-sparks path { fill: var(--splash-cream); opacity: 0; transform-box: fill-box; transform-origin: center; }
-.splash.is-playing .splash-sparks path {
-  animation: splash-spark calc(620ms * var(--splash-k)) var(--e-out) both;
+/* - estrellitas amarillas: aparecen con el color, titilan y quedan encendidas */
+.splash-sparks path {
+  fill: #ffd25a;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  filter: drop-shadow(0 0 4px rgba(255, 205, 80, 0.95));
 }
-.splash.is-playing .splash-sparks path:nth-child(1) { animation-delay: calc(1920ms * var(--splash-k)); }
-.splash.is-playing .splash-sparks path:nth-child(2) { animation-delay: calc(1990ms * var(--splash-k)); }
-.splash.is-playing .splash-sparks path:nth-child(3) { animation-delay: calc(2060ms * var(--splash-k)); }
-.splash.is-playing .splash-sparks path:nth-child(4) { animation-delay: calc(2130ms * var(--splash-k)); }
+.splash.is-playing .splash-sparks path {
+  animation: splash-spark calc(640ms * var(--splash-k)) var(--e-out) both;
+}
+.splash.is-playing .splash-sparks path:nth-child(1) { animation-delay: calc(2560ms * var(--splash-k)); }
+.splash.is-playing .splash-sparks path:nth-child(2) { animation-delay: calc(2630ms * var(--splash-k)); }
+.splash.is-playing .splash-sparks path:nth-child(3) { animation-delay: calc(2700ms * var(--splash-k)); }
+.splash.is-playing .splash-sparks path:nth-child(4) { animation-delay: calc(2770ms * var(--splash-k)); }
 @keyframes splash-spark {
   0%   { opacity: 0; transform: scale(0.3) rotate(0); }
-  40%  { opacity: 1; transform: scale(1) rotate(45deg); }
-  100% { opacity: 0; transform: scale(0.5) rotate(90deg); }
+  35%  { opacity: 1; transform: scale(1.25) rotate(45deg); }
+  60%  { opacity: 0.6; transform: scale(0.85) rotate(70deg); }
+  100% { opacity: 1; transform: scale(1) rotate(90deg); }
 }
 
 /* - boton saltar */
@@ -351,12 +358,58 @@ html.splash-lock { overflow: hidden; scrollbar-gutter: stable; }
   .splash.is-leaving .splash-stage { animation: none; }
 }
 
-/* - final: las piezas se cambian por el logo original en un mismo cuadro (identico al logo real) */
-.splash-pieces { position: absolute; inset: 0; }
-.splash-final { opacity: 0; }
-.splash.is-playing .splash-pieces { animation: splash-swap-out 1ms linear calc(2120ms * var(--splash-k)) forwards; }
-.splash.is-playing .splash-final { animation: splash-swap-in 1ms linear calc(2120ms * var(--splash-k)) forwards; }
-.splash.is-reduced .splash-pieces { opacity: 0; }
-.splash.is-reduced .splash-final { opacity: 1; animation: none; }
-@keyframes splash-swap-out { to { opacity: 0; } }
-@keyframes splash-swap-in { to { opacity: 1; } }
+/* - color final: cada pieza se enciende con un destello de su color y se queda asi */
+/* - la capa de color usa la misma pieza como mascara, asi el dibujo queda exacto */
+.splash-pieces,
+.splash-tints,
+.splash-tint,
+.splash-tint > span { position: absolute; inset: 0; }
+.splash-tint { opacity: 0; }
+.splash-tint > span {
+  background: var(--c);
+  -webkit-mask: var(--m) center / 100% 100% no-repeat;
+          mask: var(--m) center / 100% 100% no-repeat;
+}
+.splash.is-playing .splash-tint {
+  animation: splash-tint calc(440ms * var(--splash-k)) var(--e-out) calc(var(--d) * var(--splash-k)) both;
+}
+.splash.is-reduced .splash-tint { opacity: 1; animation: none; }
+@keyframes splash-tint {
+  0%   { opacity: 0; filter: brightness(1.7) drop-shadow(0 0 0 var(--g)); }
+  35%  { opacity: 1; filter: brightness(1.4) drop-shadow(0 0 12px var(--g)); }
+  100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 0 var(--g)); }
+}
+
+/* - aro: dorado azafran */
+.t-circulo { --d: 2150ms; --c: #e2a65a; --g: rgba(244, 184, 96, 0.9); --m: url("../assets/img/intro/intro-circulo.webp"); }
+/* - farol: ambar encendido */
+.t-farol { --d: 2200ms; --c: #f0b54a; --g: rgba(255, 196, 80, 1); --m: url("../assets/img/intro/intro-farol.webp"); }
+/* - balcon: arena colonial con techo teja */
+.t-balcon {
+  --d: 2250ms; --g: rgba(232, 190, 130, 0.85); --m: url("../assets/img/intro/intro-balcon.webp");
+  --c: linear-gradient(180deg, #c46b47 0%, #c46b47 22%, #ddb987 29%, #ddb987 100%);
+}
+/* - senora: piel mestiza, panuelo y manta rojo teja, mandil cafe, arete dorado */
+.t-senora {
+  --d: 2300ms; --g: rgba(232, 170, 128, 0.85); --m: url("../assets/img/intro/intro-senora.webp");
+  --c:
+    radial-gradient(1.6% 2.2% at 41.4% 28.3%, #e8b84f 60%, transparent 100%),
+    radial-gradient(11.5% 6.2% at 46.5% 4.6%, #b94a33 62%, transparent 100%),
+    radial-gradient(3.6% 9% at 35.6% 13%, #b94a33 55%, transparent 100%),
+    radial-gradient(12% 14% at 32.9% 51.2%, #ad4330 55%, transparent 100%),
+    radial-gradient(10% 13.5% at 55.4% 52%, #5b2f1c 60%, transparent 100%),
+    #d9a47f;
+}
+/* - cuchara: madera */
+.t-cuchara { --d: 2350ms; --c: #b9834f; --g: rgba(214, 160, 100, 0.9); --m: url("../assets/img/intro/intro-cuchara.webp"); }
+/* - curvitas: azafran */
+.t-curvas-izq { --d: 2400ms; --c: #e3a24f; --g: rgba(240, 176, 90, 0.9); --m: url("../assets/img/intro/intro-curvas-izq.webp"); }
+.t-curvas-der { --d: 2440ms; --c: #e3a24f; --g: rgba(240, 176, 90, 0.9); --m: url("../assets/img/intro/intro-curvas-der.webp"); }
+/* - titulo: champan suave, ni opaco ni llamativo */
+.t-titulo { --d: 2500ms; --c: #e9cf9c; --g: rgba(246, 222, 170, 0.8); --m: url("../assets/img/intro/intro-titulo.webp"); }
+/* - subtitulo y lineas: arena dorada y azafran */
+.t-lineas { --d: 2580ms; --c: #d49653; --g: rgba(230, 170, 100, 0.9); --m: url("../assets/img/intro/intro-lineas.webp"); }
+.t-subtitulo { --d: 2610ms; --c: #dcc49a; --g: rgba(236, 210, 160, 0.8); --m: url("../assets/img/intro/intro-subtitulo.webp"); }
+.t-lineas-flor { --d: 2660ms; --c: #d49653; --g: rgba(230, 170, 100, 0.9); --m: url("../assets/img/intro/intro-lineas-flor.webp"); }
+/* - flor: terracota */
+.t-flor { --d: 2700ms; --c: #d9663f; --g: rgba(240, 120, 80, 1); --m: url("../assets/img/intro/intro-flor.webp"); }

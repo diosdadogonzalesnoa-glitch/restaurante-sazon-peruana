@@ -81,8 +81,8 @@
     Promise.race([ready, tooSlow]).then(function () {
       if (finished) return;
       el.classList.add('is-playing');
-      // - 2.25 s de animacion, luego la salida (~0.45 s)
-      later(leave, (reduce ? 1100 : 2250) * k);
+      // - 3.05 s de animacion (armado + color), luego la salida (~0.45 s)
+      later(leave, (reduce ? 1100 : 3050) * k);
     }, function () {
       // - si las imagenes fallan o tardan demasiado, se retira sin animar
       leave();
